@@ -23,10 +23,9 @@ angular.module('creditCardInput',[])
       visaClass: _visa
       masterCardClass: _master
       discoverCardClass: _discover
-      cardClasses: [_amex, _visa, _master, _discover]
+      cardClasses: [_amex, _visa, _master, _discover].join(' ')
     }
   return this
-
 .directive 'type', [ 'creditCardInput', (creditCardInput) ->
   require: '?ngModel'
   link: (scope, el, attrs, ngModel) ->
@@ -54,7 +53,7 @@ angular.module('creditCardInput',[])
     #  input[type="credit card"]
     #
     else
-      formField = el.closest(".#{creditCardInput.inputWrapperClass}")
+      formField = el.parent()
 
 
       el.on 'blur keyup change', (e) ->

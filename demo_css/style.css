@@ -1,0 +1,96 @@
+/* Just click to select the code */
+
+@charset "UTF-8";
+
+@font-face {
+  font-family: "creditcard-icons";
+  src:url("creditcard-icons.eot");
+  src:url("creditcard-icons.eot?#iefix") format("embedded-opentype"),
+    url("creditcard-icons.ttf") format("truetype"),
+    url("creditcard-icons.svg#creditcard-icons") format("svg"),
+    url("creditcard-icons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "creditcard-icons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-amex-card:before {
+   content: "a";
+}
+
+.icon-master-card:before {
+   content: "b";
+}
+
+.icon-cvc-code:before {
+   content: "c";
+}
+
+.icon-credit-card:before {
+   content: "d";
+}
+
+.icon-visa-card:before {
+   content: "e";
+}
+
+.ui.form input[type="text"]:active, .ui.form input[type="credit card"]:active, .ui.form input[type="cvc"]:active, .ui.form input[type="month"]:active, .ui.form .input.left input[type="email"]:active, .ui.form .input.left input[type="date"]:active, .ui.form .input.left input[type="password"]:active, .ui.form .input.left input[type="number"]:active, .ui.form .input.left input[type="url"]:active, .ui.form .input.left input[type="tel"]:active, .ui.form .input.left textarea:active {
+  outline: 1px solid #3498db;
+}
+.ui.form .field.error .input.left input {
+  background-color: rgb(255, 250, 250);
+  color: rgb(217, 92, 92);
+  border-radius: 0.3125em;
+  border:1px solid #D95C5C;
+  box-shadow: 0.3em 0 0 0 #D95C5C inset;
+  border-bottom-left-radius: 0.4em;
+  border-top-left-radius: 0.4em;
+}
+.ui.form .input.left input[type="text"]:focus, .ui.form .input.left input[type="credit card"]:focus, .ui.form .input.left input[type="cvc"]:focus, .ui.form .input.left input[type="month"]:focus, .ui.form .input.left input[type="email"]:focus, .ui.form .input.left input[type="date"]:focus, .ui.form .input.left input[type="password"]:focus, .ui.form .input.left input[type="number"]:focus, .ui.form .input.left input[type="url"]:focus, .ui.form .input.left input[type="tel"]:focus, .ui.form .input.left textarea:focus {
+  border-left:1px solid #3498db;
+  box-shadow: 0.3em 0 0 0 #3498db inset;
+  border-bottom-left-radius: 0.4em;
+  border-top-left-radius: 0.4em;
+}
+.ui.form .field.error .input.right input {
+  background-color: rgb(255, 250, 250);
+  color: rgb(217, 92, 92);
+  border-radius: 0.3125em;
+  border:1px solid #D95C5C;
+  box-shadow: -0.3em 0 0 0 #D95C5C inset;
+  border-bottom-right-radius: 0.4em;
+  border-top-right-radius: 0.4em;
+}
+.ui.form .input.right input[type="text"]:focus, .ui.form .input.right input[type="credit card"]:focus, .ui.form .input.right input[type="cvc"]:focus, .ui.form .input.right input[type="month"]:focus, .ui.form .input.right input[type="email"]:focus, .ui.form .input.right input[type="date"]:focus, .ui.form .input.right input[type="password"]:focus, .ui.form .input.right input[type="number"]:focus, .ui.form .input.right input[type="url"]:focus, .ui.form .input.right input[type="tel"]:focus, .ui.form .input.right textarea:focus {
+  border-radius: 0.3125em;
+  border-right:1px solid #3498db;
+  box-shadow: -0.3em 0 0 0 #3498db inset;
+  border-bottom-right-radius: 0.4em;
+  border-top-right-radius: 0.4em;
+}
+.ui.form .input input[type="credit card"] {
+  letter-spacing:0.05em;
+}
+
+.ui.form .input.visa i.icon:before {
+  content: "e";
+}
+.ui.form .input.master i.icon:before {
+  content: "b";
+}
+.ui.form .input.amex i.icon:before {
+  content: "a";
+}

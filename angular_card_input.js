@@ -23,7 +23,7 @@
         visaClass: _visa,
         masterCardClass: _master,
         discoverCardClass: _discover,
-        cardClasses: [_amex, _visa, _master, _discover]
+        cardClasses: [_amex, _visa, _master, _discover].join(' ')
       };
     };
     return this;
@@ -55,7 +55,7 @@
             };
             return ngModel.$parsers.push(cvcParse);
           } else {
-            formField = el.closest("." + creditCardInput.inputWrapperClass);
+            formField = el.parent();
             el.on('blur keyup change', function(e) {
               return scope.$apply(function() {
                 var text;

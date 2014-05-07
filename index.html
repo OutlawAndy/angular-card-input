@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular Card Input</title>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.13.0/css/semantic.css" rel="stylesheet" type="text/css">
+    <link href="demo_css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="angular_card_input.js"></script>
+  </head>
+  <body ng-app="MyApp">
+    <div class="ui page grid">
+      <div class="column" >
+        <div class="ui header">
+          <h1 class="header"><a href="https://github.com/OutlawAndy/angular-card-input">Angular Card Input</a> Demo</h1>
+        </div>
+        <form class="ui form animated fadeInUp" ng-model="newUser" name="signUpForm">
+          <div>
+            <fieldset class="ui piled segment">
+              <legend>Sign Up</legend>
+              <div class="ui two column grid">
+                <div class="column">
+                  <div class="ui fluid form">
+                    <div class="field" ng-class="{error: emailError}">
+                      <label>email</label>
+                      <div class="ui left icon large input">
+                        <input  type="email" ng-model="newUser.email" name="email" ng-required style="font-size:1em"
+                                ng-blur="emailError = !!signUpForm.email.$error.email" ng-focus="emailError = false"/>
+                          <i class="icon large mail" style="margin-top:-10px"></i>
+                      </div>
+                    </div>
+                    <div class="field" ng-class="{error: confirmationError, error: passwordError}">
+                      <label>password</label>
+                      <div class="ui left icon large input">
+                        <input  type="password" ng-model="newUser.password" name="password" required style="font-size:1em" ng-minlength="6"
+                                ng-blur="passwordError = !!signUpForm.password.$error.minlength" ng-focus="passwordError = false"/>
+                        <i class="icon large key" style="margin-top:-10px"></i>
+                      </div>
+                    </div>
+                    <div class="field" ng-class="{error: confirmationError}">
+                      <label>confirm password</label>
+                      <div class="ui left icon large input">
+                        <input  type="password" ng-model="newUser.password_confirmation" name="password_confirmation" required style="font-size:1em"
+                                ng-blur="confirmationError = !(newUser.password_confirmation == newUser.password)" ng-focus="confirmationError = false"/>
+                        <i class="icon large lock" style="margin-top:-10px"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui fluid form">
+                    <div class="field" ng-class="{error: cardError}">
+                      <label>Credit Card</label>
+                      <div class="ui right icon large input">
+                        <input  type="credit card" ng-model="newUser.card" ng-required style="font-size:1em"  name="card"
+                                ng-blur="cardError = !!signUpForm.card.$error.card" ng-focus="cardError = false"/>
+                        <i class="icon large icon-credit-card" style="margin-top:-10px"></i>
+                      </div>
+                    </div>
+                    <div class="field" ng-class="{error: codeError}">
+                      <label>CVC</label>
+                      <div class="ui right icon large input">
+                        <input  type="cvc" ng-model="newUser.code" ng-required style="font-size:1em" name="code" ng-minlength="3"
+                                ng-blur="codeError = !!signUpForm.code.$error.minlength" ng-focus="codeError = false"/>
+                        <i class="icon large icon-cvc-code" style="margin-top:-10px"></i>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label>Expiration</label>
+                      <div class="ui right icon large input">
+                        <input type="month" ng-model="newUser.exp" ng-required style="font-size:1em" name="exp" />
+                        <i class="icon large calendar" style="margin-top:-10px"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div class="inline fluid field">
+                  <div class="ui slider checkbox">
+                    <input id="remember_me" type="checkbox" ng-model="newUser.remember_me" name="remember_me" checked />
+                    <label for="remember_me">Remember Me</label>
+                  </div>
+                  <div ng-click="submit()" class="ui animated base-blue submit button pull-right">
+                    <div class="visible content">sign up</div>
+                    <div class="hidden content">
+                      <i class="icon large right" style="margin-top:-2px;"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      var MyApp = angular.module('MyApp',['creditCardInput'])
+    </script>
+  </body>
+</html>
