@@ -1,0 +1,27 @@
+{
+  "name": "angular-card-input",
+  "version": "0.8.0",
+  "homepage": "https://github.com/OutlawAndy/angular-card-input",
+  "authors": [
+    "Andy Cohen <outlawandy@gmail.com>"
+  ],
+  "description": "gives you new form input types: type='credit card' and type='cvc'. Provides input formatting and proper validation, including mod10(luhn algorithm) validation of credit card numbers",
+  "main": "angular_card_input.js",
+  "keywords": [
+    "angular",
+    "creditcard",
+    "cvc",
+    "credit",
+    "card",
+    "form",
+    "validation"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
