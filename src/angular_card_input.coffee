@@ -1,14 +1,10 @@
 angular.module('creditCardInput',[])
 
 .provider 'creditCardInput', ->
-  _inputWrapperClass = 'input'
   _amex = 'amex'
   _visa = 'visa'
   _master = 'master'
   _discover = 'discover'
-
-  this.setInputWrapperClass = (className) ->
-    _inputWrapperClass = className
 
   this.setCardClasses = (cardClassObj) ->
     _amex     = cardClassObj.americanExpress || 'amex'
@@ -18,7 +14,6 @@ angular.module('creditCardInput',[])
 
   this.$get = ->
     return {
-      inputWrapperClass: _inputWrapperClass
       americanExpressClass: _amex
       visaClass: _visa
       masterCardClass: _master
@@ -44,7 +39,9 @@ angular.module('creditCardInput',[])
           el.val(cvcParse ngModel.$viewValue)
 
       cvcParse = (val) ->
-        return val?.replace(/([^\d])*/g,'')[0..3]
+        value = val?.replace(/([^\d])*/g,'')[0..3]
+        ngModel.$setValidity 'minlength', value.length >= 3 || ngModel.$isEmpty(value)
+        return value
 
       ngModel.$parsers.push(cvcParse)
 
@@ -54,7 +51,6 @@ angular.module('creditCardInput',[])
     #
     else
       formField = el.parent()
-
 
       el.on 'blur keyup change', (e) ->
         scope.$apply ->
@@ -72,7 +68,10 @@ angular.module('creditCardInput',[])
       ngModel.$parsers.push(parse)
 
       format = (text) ->
-        return unless text
+        unless text
+          ngModel.$setPristine()
+          return
+
         num = text.replace(/([^\d\s])*/g,'')
         regAmex = new RegExp("^(34|37)") #American Express
         regVisa = new RegExp("^4")       #Visa
@@ -130,5 +129,5 @@ angular.module('creditCardInput',[])
         sum = 0
         text.replace(/\D+/g,"").replace /[\d]/g, (c, p, o) ->
           sum += luhnArr[ (o.length-p)&1 ][ parseInt(c,10) ]
-        ngModel.$setValidity 'card', !!(sum % 10 is 0 && sum > 0)
+        ngModel.$setValidity 'mod10', !!(sum % 10 is 0 && sum > 0) || ngModel.$isEmpty(text)
 ]

@@ -49,19 +49,19 @@
                 </div>
                 <div class="column">
                   <div class="ui fluid form">
-                    <div class="field" ng-class="{error: cardError}">
+                    <div class="field" ng-class="{error: mod10Error}">
                       <label>Credit Card</label>
                       <div class="ui right icon large input">
                         <input  type="credit card" ng-model="newUser.card" ng-required style="font-size:1em"  name="card"
-                                ng-blur="cardError = !!signUpForm.card.$error.card" ng-focus="cardError = false"/>
+                                ng-blur="mod10Error = !!signUpForm.card.$error.mod10" ng-focus="mod10Error = false"/>
                         <i class="icon large icon-credit-card" style="margin-top:-10px"></i>
                       </div>
                     </div>
-                    <div class="field" ng-class="{error: codeError}">
+                    <div class="field" ng-class="{error: lengthError}">
                       <label>CVC</label>
                       <div class="ui right icon large input">
-                        <input  type="cvc" ng-model="newUser.code" ng-required style="font-size:1em" name="code" ng-minlength="3"
-                                ng-blur="codeError = !!signUpForm.code.$error.minlength" ng-focus="codeError = false"/>
+                        <input  type="cvc" ng-model="newUser.code" ng-required style="font-size:1em" name="code"
+                                ng-blur="lengthError = !!signUpForm.code.$error.minlength" ng-focus="lengthError = false"/>
                         <i class="icon large icon-cvc-code" style="margin-top:-10px"></i>
                       </div>
                     </div>
@@ -83,8 +83,8 @@
                   </div>
                   <div ng-click="submit()" class="ui animated base-blue submit button pull-right">
                     <div class="visible content">sign up</div>
-                    <div class="hidden content">
-                      <i class="icon large right" style="margin-top:-2px;"></i>
+                    <div style="margin-top:-20px" class="hidden content">
+                      <a href="https://github.com/outlawandy/angular-card-input">Just Kidding</a>
                     </div>
                   </div>
                 </div>
