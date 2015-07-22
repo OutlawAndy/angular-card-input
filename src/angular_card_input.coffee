@@ -24,14 +24,18 @@ angular.module('creditCardInput',[])
 .directive 'type', [ 'creditCardInput', (creditCardInput) ->
   require: '?ngModel'
   link: (scope, el, attrs, ngModel) ->
-    return unless ngModel
-    return unless (attrs.type is 'credit card' || attrs.type is 'cvc')
+    ##
+    #  support ng-type and type
+    #
+    inputType = attrs.ngType || attrs.type;
 
+    return unless ngModel
+    return unless (inputType is 'credit card' || inputType is 'cvc')
 
     ##
-    #  input[type="csv"]
+    #  input[type="cvc"]
     #
-    if attrs.type is 'cvc'
+    if inputType is 'cvc'
       el.on 'blur keyup change', (e) ->
         scope.$apply ->
           return unless text = el.val()
