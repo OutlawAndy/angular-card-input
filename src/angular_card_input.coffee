@@ -29,7 +29,7 @@ angular.module('creditCardInput',[])
 
 
     ##
-    #  input[type="csv"]
+    #  input[type="cvc"]
     #
     if attrs.type is 'cvc'
       el.on 'blur keyup change', (e) ->
